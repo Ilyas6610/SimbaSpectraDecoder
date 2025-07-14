@@ -18,7 +18,7 @@ int main(){
         while(!pcapFile.eof()){
             if(auto record = pcapFile.getNextRecord())
                 for(const auto& message: record->messages)
-                    std::cout << message.second->getMessageAsString() << ",\n";
+                    ofs << message.second->getMessageAsString() << ",\n";
         }
         if(auto pos = ofs.tellp(); pos != 1)
             ofs.seekp(ofs.tellp()-2);
